@@ -1,0 +1,33 @@
+import logging
+from datetime import datetime
+from typing import Any, Dict
+
+LOG_FILE = "state_log.txt"
+
+
+# logging.basicConfig(
+#     filename=LOG_FILE,
+#     level=logging.INFO,
+#     format="%(asctime)s | %(levelname)s | %(message)s",
+#     encoding="utf-8",
+# )
+
+
+def log_header(title: str) -> None:
+    line = "=" * 80
+    logging.info("\n%s\n%s\n%s", line, title, line)
+
+def log_state(stage: str, state: Dict[str,any]) -> None:
+    """Pretty-log the current graph state to the log file."""
+    log_header(f"STATE SNAPSHOT @ {stage}")
+    messages = state.get("messages", [])
+    logging.info("Iterations: %s", state.get("iterations"))
+    for i, msg in enumerate(messages, 1):
+        role = getattr(msg, "type", getattr(msg, "role", "unknown"))
+        content = getattr(msg, "content", "")
+        logging.info("(%d) %s: %s", i, role, content)
+
+
+
+
+

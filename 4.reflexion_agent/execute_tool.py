@@ -6,7 +6,7 @@ from langchain_tavily import TavilySearch
 from dotenv import load_dotenv
 load_dotenv()
 # Create the Tavily search tool
-tavily_tool = TavilySearch(max_results=2)
+tavily_tool = TavilySearch(max_results=5)
 test_state = [
     HumanMessage(
         content="Write about how small business can leverage AI to grow"
@@ -63,10 +63,10 @@ def execute_tools(state:list[BaseMessage])-> List[BaseMessage]:
     
     return tool_messages
 
-#Execute the tools
-results = execute_tools(test_state)
+# #Execute the tools
+# results = execute_tools(test_state)
 
-# print("Raw results:", results)
-if results:
-    parsed_content = json.loads(results[0].content)
-    print("Parsed content:", parsed_content)
+# # print("Raw results:", results)
+# if results:
+#     parsed_content = json.loads(results[0].content)
+#     print("Parsed content:", parsed_content)

@@ -15,12 +15,12 @@ graph.add_edge("execute_tools","revisor")
 
 graph.set_entry_point("draft")
 
-def event_loop(state:List[BaseMessage])->str:
-    count_tool_visits=sum(isinstance(item,ToolMessage) for item in state)
+def event_loop(state: List[BaseMessage]) -> str:
+    count_tool_visits = sum(isinstance(item, ToolMessage) for item in state)
     num_iterations = count_tool_visits
     if num_iterations > MAX_ITERATIONS:
         return END
-    return execute_tools
+    return "execute_tools"
 
 graph.add_conditional_edges("revisor",event_loop)
 

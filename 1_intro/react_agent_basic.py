@@ -1,6 +1,6 @@
 from langchain_google_genai import ChatGoogleGenerativeAI
 from dotenv import load_dotenv
-load_dotenv(dotenv_path="d:/project/langraph/.env")
+load_dotenv()
 from langgraph.prebuilt import create_react_agent
 from langchain_tavily import TavilySearch
 from langchain_core.tools import tool

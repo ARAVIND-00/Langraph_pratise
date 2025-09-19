@@ -48,7 +48,7 @@ app = graph.compile()
 
 print(app.get_graph().draw_mermaid())
 app.get_graph().print_ascii()
-
+app.get_graph().draw_mermaid_png()
 
 response=app.invoke({
     "messages": [HumanMessage(content="AI Agents taking over content creation")]

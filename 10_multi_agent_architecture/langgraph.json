@@ -1,0 +1,7 @@
+{
+  "dependencies": ["."],
+  "graphs": {
+    "agent": "./2_supervisor_multiagent_workflow.ipynb:app"
+  },
+  "env": "../.env"
+}
